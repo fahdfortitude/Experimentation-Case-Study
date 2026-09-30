@@ -4,7 +4,7 @@
 
 A 28-day randomized experiment tested a simplified checkout among 48,000 users at their first eligible checkout start. Treatment increased purchase within 24 hours from **47.02% to 48.23%**: **+1.21 percentage points** (95% CI +0.32 to +2.10; p=0.008).
 
-The primary effect is statistically distinguishable from zero, but the result is not an automatic ship. The interval does not fully clear the pre-defined +0.75-point commercial hurdle. Net revenue per assigned user was flat, average order value declined 1.9%, and refunds per assigned user increased 0.35 points. Treatment did reduce support contacts and checkout latency.
+The experiment establishes product efficacy more strongly than commercial value. The positive conversion effect is compatible with lifts both below and above the pre-defined +0.75-point commercial hurdle. Net revenue per assigned user showed no demonstrated improvement, average order value declined 1.9%, and refunds per assigned user increased 0.35 points. Treatment did reduce support contacts and checkout latency.
 
 **Recommendation: iterate and retest.** Preserve the performance and usability improvements, diagnose the refund and basket-value trade-offs, and test a revised version. The experiment does not support broad rollout or a mobile-only policy from the current evidence.
 
@@ -43,7 +43,7 @@ Revenue uses all assigned users and therefore retains randomization. Average ord
 
 Planning assumed a 45% baseline, two-sided α=0.05, 80% power, and a **1.5 percentage-point minimum detectable effect**. This required **17,315 users per arm**, or **34,630 total**. The realized sample of 48,000 exceeded that requirement.
 
-The statistical MDE answers what the design can reliably detect. The separate **+0.75-point business hurdle** represents the smallest lift considered commercially worthwhile given implementation and operational costs. Detectability and commercial value are different decisions.
+The statistical MDE answers what the design can reliably detect. The separate **+0.75-point business hurdle** represents the smallest lift considered commercially worthwhile given implementation and operational costs. Detectability and commercial value are different quantities; the hurdle informs the overall decision rather than acting as a universal confidence-interval shipping rule.
 
 ## Experiment health
 
@@ -62,7 +62,7 @@ Passing these checks does not prove perfect execution; it removes the main obser
 |---|---:|---:|---:|---:|---:|
 | Purchase within 24 hours | 47.02% | 48.23% | +1.21 pp | +2.57% | +0.32 to +2.10 pp |
 
-The result is statistically significant at the pre-specified 5% level. Its lower confidence bound remains below the +0.75-point business hurdle, so the experiment has not established that the commercially relevant effect is at least that large.
+The result provides evidence of a positive conversion effect at the pre-specified 5% level. The confidence interval includes effects below and above the +0.75-point business hurdle, leaving uncertainty about whether the durable lift is reliably large enough to meet the commercial target. That uncertainty is considered alongside revenue and guardrails rather than used as a mechanical ship/no-ship rule.
 
 ## Guardrails
 
@@ -70,13 +70,13 @@ The result is statistically significant at the pre-specified 5% level. Its lower
 
 | Metric | Control | Treatment | Effect | Interpretation |
 |---|---:|---:|---:|---|
-| Net revenue / assigned user | £44.58 | £44.56 | −£0.02; CI −£1.06 to +£1.01 | No demonstrated revenue gain |
-| Average order value, buyers | £98.82 | £96.92 | −£1.89 (−1.9%) | Adverse basket-value movement |
-| Refunds / assigned user | 1.90% | 2.25% | +0.35 pp | Material adverse guardrail |
-| Support contacts / assigned user | 7.87% | 6.76% | −1.11 pp | Meaningful usability improvement |
-| Checkout latency | 2,181 ms | 1,762 ms | −420 ms | Clear performance improvement |
+| Net revenue / assigned user | £44.58 | £44.56 | −£0.02; 95% CI −£1.06 to +£1.01 | No demonstrated revenue improvement |
+| Average order value, buyers | £98.82 | £96.92 | −£1.89 (−1.9%); 95% CI −£3.08 to −£0.70 | Estimated adverse basket-value movement; conditional metric |
+| Refunds / assigned user | 1.90% | 2.25% | +0.35 pp; 95% CI +0.09 to +0.60 pp | Evidence of a small absolute refund increase |
+| Support contacts / assigned user | 7.87% | 6.76% | −1.11 pp; 95% CI −1.57 to −0.64 pp | Evidence of fewer support contacts |
+| Checkout latency | 2,181 ms | 1,762 ms | −420 ms; 95% CI −427 to −412 ms | Clear performance improvement |
 
-The treatment appears easier and faster, but extra completions do not translate into higher net revenue in this sample. Refund and order-value movements require diagnosis before rollout.
+The treatment appears easier and faster, but extra completions do not translate into demonstrated higher net revenue in this sample. The refund increase is small in absolute terms but precisely positive over the seven-day observation window; the AOV decline is also estimated below zero. AOV remains conditional on purchasing, and treatment can change buyer composition, so it is interpreted diagnostically rather than as a standalone causal business metric.
 
 ## Segment analysis
 
@@ -109,7 +109,7 @@ Weekly estimates ranged from +0.41 to +2.31 points, with overlapping intervals. 
 3. Revise the intervention to retain order context and confirmation clarity.
 4. Retest with purchase completion as primary and net revenue, refunds, and support as pre-specified guardrails.
 
-The evidence supports a real completion improvement. It does not establish adequate commercial value, harmlessness, or a segment-specific rollout policy.
+The total evidence supports checkout efficacy but not yet a sufficiently clear commercial case: conversion improves, revenue does not, and refund and AOV movements create trade-offs. That combined picture—not a rule requiring the primary interval's lower bound to exceed the hurdle—supports iteration and retesting. The experiment also does not establish a segment-specific rollout policy.
 
 ## Limitations
 

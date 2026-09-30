@@ -117,7 +117,7 @@ def run():
                 fmt="o", markersize=11, capsize=6, color="#20639B")
     ax.axvline(0, color="#555", linewidth=1); ax.axvline(BUSINESS_HURDLE * 100, color="#ED553B", linestyle="--", label="Business hurdle")
     ax.set_yticks([]); ax.set_xlabel("Absolute change in purchase rate (percentage points)")
-    ax.set_title("Checkout completion improved, but the interval does not fully clear the business hurdle")
+    ax.set_title("Checkout completion improved; the commercially relevant magnitude remains uncertain")
     ax.legend(frameon=False); sns.despine(left=True); fig.savefig(FIGURES / "primary_effect.png"); plt.close(fig)
 
     plot = guardrails.copy()

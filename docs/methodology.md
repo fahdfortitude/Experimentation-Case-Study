@@ -6,7 +6,7 @@ The primary estimand is the intention-to-treat difference in the probability of 
 
 ## Prospective planning
 
-The design uses a 45% baseline, 1.5 percentage-point absolute MDE, two-sided α=0.05, and 80% power. The normal approximation requires 17,315 users per arm. A separate 0.75-point business hurdle is used for decision context; it is not retrofitted as the statistical MDE.
+The design uses a 45% baseline, 1.5 percentage-point absolute MDE, two-sided α=0.05, and 80% power. The normal approximation requires 17,315 users per arm. A separate 0.75-point business hurdle is used for commercial decision context; it is not retrofitted as the statistical MDE or treated as a universal rule requiring a confidence bound to cross it before shipping.
 
 ## Validity checks
 

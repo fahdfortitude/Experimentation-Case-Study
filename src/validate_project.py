@@ -31,7 +31,9 @@ assert summary["cuped"]["variance_reduction"] > 0
 for figure in ["primary_effect.png", "guardrail_effects.png", "cuped_precision.png", "segment_effects.png", "weekly_effect.png"]:
     assert (ROOT / "outputs/figures" / figure).stat().st_size > 10_000
 readme = (ROOT / "README.md").read_text(encoding="utf-8")
-for value in ["48,000", "47.02%", "48.23%", "1.21 percentage points", "0.812", "1.15%"]:
+for value in ["48,000", "47.02%", "48.23%", "1.21 percentage points", "0.812", "1.15%",
+              "95% CI −£1.06 to +£1.01", "95% CI −£3.08 to −£0.70",
+              "95% CI +0.09 to +0.60 pp", "95% CI −1.57 to −0.64 pp"]:
     assert value in readme, f"README missing {value}"
 ignored = subprocess.run(["git", "check-ignore", "-q", "docs/interview_defense.md"], cwd=ROOT).returncode
 assert ignored == 0, "Private interview defense is not gitignored"
