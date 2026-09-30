@@ -1,4 +1,4 @@
-# Checkout Experiment — Simplified Checkout Evaluation
+# Checkout Experiment :- Simplified Checkout Evaluation
 
 ## Executive summary
 
