@@ -1,0 +1,146 @@
+{
+  "sample_size": 48000,
+  "control_n": 23974,
+  "treatment_n": 24026,
+  "duration_days": 28,
+  "planned_baseline": 0.45,
+  "planned_mde_absolute": 0.015,
+  "business_hurdle_absolute": 0.0075,
+  "alpha": 0.05,
+  "power": 0.8,
+  "required_per_arm": 17315,
+  "required_total": 34630,
+  "srm": {
+    "chi_square": 0.05633333333333333,
+    "p_value": 0.8123880360341355
+  },
+  "max_abs_standardized_difference": 0.02412004526170731,
+  "missing_primary": 0,
+  "primary": {
+    "control": 0.4702177358805372,
+    "treatment": 0.4823108299342379,
+    "absolute_effect": 0.012093094053700681,
+    "relative_effect": 0.025718072992408424,
+    "se": 0.004558874465842159,
+    "ci_low": 0.003157864290610773,
+    "ci_high": 0.021028323816790588,
+    "z": 2.6526490571980967,
+    "p_value": 0.007986285736813172,
+    "business_hurdle": 0.0075,
+    "ci_excludes_zero": true,
+    "ci_clears_business_hurdle": false
+  },
+  "guardrails": {
+    "Net revenue / assigned user": {
+      "control": 44.57865854675899,
+      "treatment": 44.55520019978357,
+      "absolute_effect": -0.023458346975417044,
+      "relative_effect": -0.0005262237074902412,
+      "ci_low": -1.0565504127062637,
+      "ci_high": 1.0096337187554296,
+      "p_value": 0.9645020572163698
+    },
+    "Average order value (buyers)": {
+      "control": 98.8180848043999,
+      "treatment": 96.92369606489473,
+      "absolute_effect": -1.8943887395051746,
+      "relative_effect": -0.019170466046320566,
+      "ci_low": -3.083953944637922,
+      "ci_high": -0.7048235343724276,
+      "p_value": 0.0018008338196596077
+    },
+    "Refunds / assigned user": {
+      "control": 0.01897889380161842,
+      "treatment": 0.022475651377674186,
+      "absolute_effect": 0.0034967575760557652,
+      "relative_effect": 0.18424454094145254,
+      "ci_low": 0.0009480001721233235,
+      "ci_high": 0.006045514979988207,
+      "p_value": 0.007167397922548227
+    },
+    "Support contacts / assigned user": {
+      "control": 0.07866855760407107,
+      "treatment": 0.06759344043952385,
+      "absolute_effect": -0.011075117164547219,
+      "relative_effect": -0.1407820036600504,
+      "ci_low": -0.015732434286798408,
+      "ci_high": -0.006417800042296028,
+      "p_value": 3.1498034351172427e-06
+    },
+    "Checkout latency (ms)": {
+      "control": 2181.2143989321767,
+      "treatment": 1761.5779155914427,
+      "absolute_effect": -419.636483340734,
+      "relative_effect": -0.19238662808487278,
+      "ci_low": -426.97135141804563,
+      "ci_high": -412.3016152634224,
+      "p_value": 0.0
+    }
+  },
+  "cuped": {
+    "control": 0.4703668862525192,
+    "treatment": 0.48216200237168494,
+    "absolute_effect": 0.011795116119165727,
+    "relative_effect": 0.02507641686501173,
+    "se": 0.004532615610922644,
+    "ci_low": 0.0029113527659933303,
+    "ci_high": 0.020678879472338124,
+    "p_value": 0.009260733190674596,
+    "theta": 0.12227996162721373,
+    "pre_outcome_correlation": 0.10738219983665555,
+    "variance_reduction": 0.01153093684157358,
+    "unadjusted_se": 0.004558874465842159,
+    "adjusted_se": 0.004532615610922644
+  },
+  "segments": {
+    "device_type:desktop": {
+      "control": 0.49727675744141864,
+      "treatment": 0.5005889281507656,
+      "absolute_effect": 0.0033121707093469732,
+      "ci_low": -0.0124143703595843,
+      "ci_high": 0.019038711778278247,
+      "p_value": 0.6797615775979607
+    },
+    "device_type:mobile": {
+      "control": 0.4569314012065427,
+      "treatment": 0.47378700030515714,
+      "absolute_effect": 0.01685559909861445,
+      "ci_low": 0.006004973928052224,
+      "ci_high": 0.027706224269176676,
+      "p_value": 0.0023295042963764182
+    },
+    "new_vs_returning:new": {
+      "control": 0.42225696418419556,
+      "treatment": 0.4396241079629761,
+      "absolute_effect": 0.017367143778780514,
+      "ci_low": 0.005814521591621326,
+      "ci_high": 0.028919765965939703,
+      "p_value": 0.003214666341668945
+    },
+    "new_vs_returning:returning": {
+      "control": 0.5383760856392648,
+      "treatment": 0.5435024815152436,
+      "absolute_effect": 0.005126395875978851,
+      "ci_low": -0.008764287721976839,
+      "ci_high": 0.01901707947393454,
+      "p_value": 0.4694770278860866
+    }
+  },
+  "interaction_tests": {
+    "device_type": {
+      "log_odds_interaction": 0.05450536150904098,
+      "p_value": 0.16287393933820027
+    },
+    "new_vs_returning": {
+      "log_odds_interaction": -0.050183244089660684,
+      "p_value": 0.17871610763285706
+    }
+  },
+  "time_interaction_p": 0.8943239272923372,
+  "weekly_effects": {
+    "1": 0.01440486148138398,
+    "2": 0.006559488188325524,
+    "3": 0.02307873510466335,
+    "4": 0.00411573761229983
+  }
+}
