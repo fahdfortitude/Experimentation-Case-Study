@@ -10,7 +10,7 @@ The design uses a 45% baseline, 1.5 percentage-point absolute MDE, two-sided α=
 
 ## Validity checks
 
-The SRM chi-square test compares observed arm counts with the planned 50/50 allocation before outcomes are analyzed. Standardized differences assess balance on device, returning status, prior purchase, sessions, and revenue. Required-field missingness, eligibility, duration, daily volume, and assignment uniqueness are also checked. A non-significant SRM result is necessary reassurance, not proof of valid randomization.
+Observed allocation is tested against the planned 50/50 split before outcomes are analyzed. Balance checks cover device, returning status, prior purchase, sessions, and revenue; validity checks also cover missingness, eligibility, duration, daily volume, and assignment uniqueness. These diagnostics found no material validity issue.
 
 ## Inference
 
@@ -20,9 +20,7 @@ Revenue per assigned user is the preferred commercial metric because it preserve
 
 ## CUPED
 
-The CUPED covariate is purchase during the 28-day pre-period, recorded before assignment. The adjustment is `Y_adj = Y − θ(X − mean(X))`, where θ is the outcome–covariate covariance divided by covariate variance. Randomization makes the covariate mean-balanced in expectation, so the effect estimate should remain similar while variance can fall.
-
-The realized correlation is only 0.107, yielding 1.15% variance reduction. This modest result is retained. CUPED cannot fix invalid assignment, treatment-dependent missingness, or use of post-treatment covariates.
+CUPED uses purchase during the 28-day pre-period, recorded before assignment. Its 0.107 correlation with the outcome reduces variance by only 1.15% and leaves the estimate effectively unchanged. The adjustment does not address invalid assignment, treatment-dependent missingness, or post-treatment covariates.
 
 ## Heterogeneity and time
 
@@ -32,7 +30,7 @@ Time dynamics are summarized weekly and tested with a treatment-by-experiment-da
 
 ## Synthetic construction
 
-`src/generate_data.py` assigns treatment independently after generating pre-treatment attributes. Purchase probability is generated coherently from latent intent and observed attributes, with a modest treatment effect that varies by device and a small early novelty component. Treatment also changes latency and has pre-specified order-value, refund, and support parameters. These inputs are fixed in code and were not revised after observing realized results.
+`src/generate_data.py` assigns treatment independently after generating pre-treatment attributes. Purchase probability reflects latent intent and observed attributes, with treatment parameters for conversion, latency, order value, refunds, and support behavior fixed in the generator.
 
-Because the analyst controls the synthetic world, this case cannot establish external validity. It demonstrates design, estimation, validation, and decision discipline.
+Because the data-generating process is synthetic, the estimated behavior has no external validity.
 

@@ -109,7 +109,6 @@ def run():
     time_model = smf.logit("purchase_24h ~ treatment * experiment_day", data=df).fit(disp=False)
     time_interaction_p = float(time_model.pvalues["treatment:experiment_day"])
 
-    # Decision-focused figures.
     fig, ax = plt.subplots(figsize=(9, 4.8))
     ax.errorbar(primary["absolute_effect"] * 100, 0,
                 xerr=[[primary["absolute_effect"] * 100 - primary["ci_low"] * 100],

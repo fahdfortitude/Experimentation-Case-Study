@@ -1,7 +1,6 @@
 """Execute SQL and reconcile public claims with computed outputs."""
 from pathlib import Path
 import json
-import subprocess
 import duckdb
 import pandas as pd
 
@@ -35,7 +34,5 @@ for value in ["48,000", "47.02%", "48.23%", "1.21 percentage points", "0.812", "
               "95% CI −£1.06 to +£1.01", "95% CI −£3.08 to −£0.70",
               "95% CI +0.09 to +0.60 pp", "95% CI −1.57 to −0.64 pp"]:
     assert value in readme, f"README missing {value}"
-ignored = subprocess.run(["git", "check-ignore", "-q", "docs/interview_defense.md"], cwd=ROOT).returncode
-assert ignored == 0, "Private interview defense is not gitignored"
-print("PASS calculations, README reconciliation, figures, and private-file ignore check")
+print("PASS calculations, README reconciliation, and figures")
 

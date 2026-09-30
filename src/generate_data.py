@@ -40,7 +40,7 @@ def generate(output_dir: str | Path = "data/raw", n_users: int = 48_000) -> dict
     latent_intent = rng.normal(0, 1, n_users) + .34 * returning + .12 * (channel == "direct") - .15 * (channel == "paid_social")
 
     # Randomization is independent of user characteristics and occurs at the first
-    # eligible checkout start. A hash-like Bernoulli draw produces natural imbalance.
+    # eligible checkout start.
     treatment = rng.random(n_users) < .5
     group = np.where(treatment, "treatment", "control")
 

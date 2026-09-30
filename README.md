@@ -1,4 +1,4 @@
-# Product Experimentation Case Study — Evaluating a Checkout Intervention
+# Checkout Experiment — Simplified Checkout Evaluation
 
 ## Executive summary
 
@@ -29,7 +29,7 @@ The decision considers incremental completion, uncertainty, commercial value, gu
 | Analysis population | All eligible assigned users | Avoids bias from post-assignment engagement or exposure |
 | Intended duration | Fixed 28 days | Covers four weekly cycles without optional stopping |
 
-The synthetic dataset is generated with a fixed seed. Its purpose is to demonstrate experiment workflow and product judgment, not to claim real consumer behavior. Planted parameters are documented in the generator but omitted from the executive narrative.
+All data are synthetic and generated with a fixed seed. The results do not describe real customers. Generation parameters are documented in the source code.
 
 ## Metrics
 
@@ -54,7 +54,7 @@ The statistical MDE answers what the design can reliably detect. The separate **
 - All users met the checkout-trigger eligibility rule.
 - Enrollment covered the planned 28 days.
 
-Passing these checks does not prove perfect execution; it removes the main observed reasons to distrust the estimate.
+No material validity issue was found in the observed diagnostics.
 
 ## Primary result
 
@@ -92,7 +92,7 @@ A significant estimate in one subgroup and a non-significant estimate in another
 
 CUPED used only the pre-treatment 28-day purchase indicator. Its correlation with the primary outcome was 0.107, producing a modest **1.15% variance reduction**. The adjusted effect was +1.18 points with essentially the same decision.
 
-CUPED improves precision when a pre-treatment covariate predicts the outcome. It does not repair sample-ratio mismatch, broken randomization, missing outcomes, or bias from conditioning on post-treatment behavior.
+The adjustment does not address broken randomization, missing outcomes, or post-treatment selection.
 
 ## Time dynamics
 
@@ -113,7 +113,7 @@ The total evidence supports checkout efficacy but not yet a sufficiently clear c
 
 ## Limitations
 
-- The data is synthetic; the case demonstrates analytical workflow rather than external validity.
+- Synthetic data limits external validity.
 - Refunds are observed for seven days, not through the full return lifecycle.
 - Margin, cancellation reasons, payment-provider failures, and qualitative feedback are unavailable.
 - Eligibility begins at checkout, so results do not generalize to users who never start checkout.
@@ -134,8 +134,6 @@ The total evidence supports checkout efficacy but not yet a sufficiently clear c
 └── docs/methodology.md
 ```
 
-`docs/interview_defense.md` is intentionally local and excluded by `.gitignore`.
-
 ## Reproduction
 
 ```bash
@@ -147,5 +145,5 @@ pip install -r requirements.txt
 python run_all.py
 ```
 
-The command regenerates the fixed-seed data, recomputes all estimates and figures, executes every SQL query, reconciles README values, verifies the private-file ignore rule, and executes the notebook top to bottom.
+The command regenerates the fixed-seed data, recomputes all estimates and figures, executes every SQL query, reconciles README values, and executes the notebook top to bottom.
 

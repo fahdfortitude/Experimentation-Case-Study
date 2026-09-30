@@ -1,4 +1,4 @@
-"""Build the concise analytical-story notebook."""
+"""Build the experiment analysis notebook."""
 from pathlib import Path
 import nbformat as nbf
 
@@ -7,7 +7,7 @@ nb = nbf.v4.new_notebook()
 nb["metadata"]["kernelspec"] = {"display_name": "Python 3", "language": "python", "name": "python3"}
 nb["metadata"]["language_info"] = {"name": "python", "version": "3.12"}
 nb["cells"] = [
-    nbf.v4.new_markdown_cell("# Product Experimentation Case Study — Evaluating a Checkout Intervention\n\nThe decision question is whether a simplified checkout creates enough incremental customer and business value to ship. The analysis follows the pre-specified design: validate assignment, estimate the primary effect, examine guardrails, improve precision, then assess limited subgroup and time-dynamics evidence."),
+    nbf.v4.new_markdown_cell("# Checkout Experiment — Simplified Checkout Evaluation\n\nThe decision is whether a simplified checkout creates enough incremental customer and business value to ship. The analysis validates assignment before estimating the primary effect, guardrails, pre-specified subgroup effects, and time dynamics."),
     nbf.v4.new_code_cell("from pathlib import Path\nimport json, sys\nimport numpy as np\nimport pandas as pd\nimport statsmodels.formula.api as smf\nROOT = Path.cwd().parent if Path.cwd().name == 'notebooks' else Path.cwd()\nsys.path.insert(0, str(ROOT))\nfrom src.statistics import proportion_effect, mean_effect, srm_test, required_sample_size, cuped_adjust\ndf = pd.read_csv(ROOT/'data/raw/experiment_users.csv', parse_dates=['assignment_timestamp'])\ndf['treatment'] = (df.experiment_group=='treatment').astype(int)\ndf.shape"),
     nbf.v4.new_markdown_cell("## 1. Design and decision rules\n\n- **Unit:** user, assigned once at the first eligible checkout start.\n- **Primary metric:** purchase within 24 hours per assigned user.\n- **Analysis:** intention to treat.\n- **Duration:** fixed 28 days; no significance-based stopping.\n- **Planning:** 45% baseline, 1.5 percentage-point MDE, 5% two-sided alpha, 80% power.\n- **Business hurdle:** 0.75 percentage point. This is distinct from the statistical MDE."),
     nbf.v4.new_code_cell("required_sample_size(.45, .015, alpha=.05, power=.80)"),
